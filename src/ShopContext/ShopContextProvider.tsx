@@ -1,8 +1,7 @@
 import React from 'react'
 
-export interface ShopContextProps {
-
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface ShopContextProps {}
 
 interface ShopContextProviderProps {
   children: React.ReactNode
@@ -11,9 +10,5 @@ interface ShopContextProviderProps {
 export const Context = React.createContext({} as ShopContextProps)
 
 export function ShopContextProvider({ children }: ShopContextProviderProps) {
-  return (
-    <Context.Provider value={{}}>
-      {children}
-    </Context.Provider>
-  )
+  return <Context.Provider value={{}}>{children}</Context.Provider>
 }
