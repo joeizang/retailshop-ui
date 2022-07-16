@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { ShopContextProvider } from './ShopContext'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
+    <ShopContextProvider>
+      <div className="App">
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
@@ -28,6 +30,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
+    </ShopContextProvider>
   )
 }
 
