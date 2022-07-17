@@ -5,6 +5,7 @@ import { Summary } from './pages/Summary'
 import { Report } from './pages/Report'
 import { ShopContextProvider } from './ShopContext'
 import Container from '@mui/material/Container'
+import { NotFound } from './pages/NotFound'
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Store />} />
           <Route path="/summary" element={<Summary />} />
-          <Route path="/report" element={<Report />} />
+          <Route path="/reports" element={<Report />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
     </ShopContextProvider>

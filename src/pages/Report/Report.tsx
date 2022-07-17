@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 export function Report() {
   return (
     <>
-      <Box>
+      <Box mt={10}>
         <Typography variant={'h3'}>Report Page</Typography>
       </Box>
     </>
