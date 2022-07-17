@@ -3,28 +3,38 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
+import { Link } from 'react-router-dom'
 
 export function Navbar() {
   return (
     <>
-      <AppBar>
+      <AppBar position={'absolute'}>
         <Toolbar>
-          <Box display={'flex'} justifyContent={'space-between'}>
-            <Box>
-              <Typography variant={'h4'}>Shop Retailer</Typography>
-            </Box>
-            <Box></Box>
-            <Box>
-              <Button>
-                <Typography variant={'h4'}>Store</Typography>
-              </Button>
-              <Button>
-                <Typography variant={'h4'}>Summary</Typography>
-              </Button>
-              <Button>
-                <Typography variant={'h4'}>Reports</Typography>
-              </Button>
-            </Box>
+          <Box flexGrow={1}>
+            <Typography variant={'h4'}>Shop Retailer</Typography>
+          </Box>
+          <Box>
+            <Button variant={'text'}>
+              <Link to={'/'} style={{ textDecoration: 'none' }}>
+                <Typography variant={'h6'} color={'whitesmoke'}>
+                  Store
+                </Typography>
+              </Link>
+            </Button>
+            <Button variant={'text'}>
+              <Link to={'/summary'} style={{ textDecoration: 'none' }}>
+                <Typography variant={'h6'} color={'whitesmoke'}>
+                  Summary
+                </Typography>
+              </Link>
+            </Button>
+            <Button variant={'text'}>
+              <Link to={'/reports'} style={{ textDecoration: 'none' }}>
+                <Typography variant={'h6'} color={'whitesmoke'}>
+                  Reports
+                </Typography>
+              </Link>
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
