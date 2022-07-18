@@ -1,7 +1,8 @@
 import FormControl from '@mui/material/FormControl'
 import Paper from '@mui/material/Paper'
 import TextField from '@mui/material/TextField'
-import { SyntheticEvent, useState } from 'react'
+import { useState } from 'react'
+import { PageHeading } from '../PageHeading'
 
 export function ProductSearch() {
   const [productName, setProductName] = useState('')
@@ -14,7 +15,8 @@ export function ProductSearch() {
   }
   return (
     <>
-      <Paper sx={{ height: 200, borderRadius: 3, padding: 3 }}>
+      <PageHeading headingText={'Store Front'} />
+      <Paper sx={{ height: 150, borderRadius: 3, padding: 3 }} elevation={3}>
         <FormControl fullWidth={false} sx={{ width: '95%', padding: 3 }}>
           <TextField
             placeholder="Search for products by name..."
