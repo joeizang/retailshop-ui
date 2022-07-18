@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
+import { ProductSearch } from '../../components/ProductSearch'
 
 export function Store() {
   return (
     <>
       <Box mt={10}>
-        <Typography variant={'h3'}>Store Front</Typography>
+        <ProductSearch />
       </Box>
     </>
   )
