@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 const client = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <QueryClientProvider client={client}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <QueryClientProvider client={client}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </React.StrictMode>
-  </QueryClientProvider>,
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  </React.StrictMode>,
 )
