@@ -50,6 +50,14 @@ export interface ProductToBeSold {
      * @memberof ProductToBeSold
      */
     saleId?: string;
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ProductToBeSold
+     */
+    imageUrl?: string;
+
     /**
      * 
      * @type {UnitMeasure}
