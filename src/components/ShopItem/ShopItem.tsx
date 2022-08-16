@@ -6,7 +6,6 @@ import CardActions from '@mui/material/CardActions'
 import Button from '@mui/material/Button'
 import { useReducer, useRef } from 'react'
 import Box from '@mui/material/Box'
-import Fade from '@mui/material/Fade'
 import ModifyQuantity from './ModifyQuantity'
 
 export function ShopItem() {
@@ -25,10 +24,9 @@ export function ShopItem() {
     },
     1,
   )
-  const containerRef = useRef(null)
   return (
     <>
-      <Card elevation={3} sx={{ maxWidth: 375, borderRadius: 5 }}>
+      <Card elevation={3} sx={{ maxWidth: 300, borderRadius: 5 }}>
         <CardMedia
           component={'img'}
           height={150}
@@ -41,11 +39,7 @@ export function ShopItem() {
             <Typography variant={'subtitle2'}>Product Price</Typography>
           </Box>
           {quantityControl && (
-            <Box
-              display={'flex'}
-              justifyContent={'space-between'}
-              ref={containerRef}
-            >
+            <Box display={'flex'} justifyContent={'space-between'}>
               <ModifyQuantity
                 quantity={quantity}
                 dispatchQuantityUpdate={updateQuantity}
