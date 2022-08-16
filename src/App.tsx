@@ -6,6 +6,7 @@ import { Report } from './pages/Report'
 import { ShopContextProvider } from './ShopContext'
 import Container from '@mui/material/Container'
 import { NotFound } from './pages/NotFound'
+import { Footer } from './components/Footer'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
+      <Footer />
     </ShopContextProvider>
   )
 }
