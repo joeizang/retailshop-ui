@@ -1,18 +1,26 @@
 import { FormControl } from '@mui/material'
-import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import { Fragment, SyntheticEvent } from 'react'
+import { Fragment } from 'react'
 
 export interface ModifyQuantityProps {
   quantity: number
+  dispatchQuantityUpdate: React.Dispatch<{ type: 'increment' | 'decrement' }>
 }
 
-export default function ModifyQuantity({ quantity }: ModifyQuantityProps) {
+export default function ModifyQuantity({
+  quantity,
+  dispatchQuantityUpdate,
+}: ModifyQuantityProps) {
   return (
     <Fragment>
-      <Button variant={'contained'} size={'small'} sx={{ borderRadius: '50%' }}>
+      <Button
+        variant={'contained'}
+        size={'small'}
+        sx={{ borderRadius: '50%' }}
+        onClick={() => dispatchQuantityUpdate({ type: 'decrement' })}
+      >
         <Typography variant={'button'}>-</Typography>
       </Button>
       <FormControl
@@ -28,7 +36,12 @@ export default function ModifyQuantity({ quantity }: ModifyQuantityProps) {
           value={quantity}
         />
       </FormControl>
-      <Button variant={'contained'} size={'small'} sx={{ borderRadius: '50%' }}>
+      <Button
+        variant={'contained'}
+        size={'small'}
+        sx={{ borderRadius: '50%' }}
+        onClick={() => dispatchQuantityUpdate({ type: 'increment' })}
+      >
         <Typography variant={'button'}>+</Typography>
       </Button>
     </Fragment>

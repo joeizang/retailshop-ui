@@ -4,11 +4,8 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import CardActions from '@mui/material/CardActions'
 import Button from '@mui/material/Button'
-import { Fragment, useReducer, useRef, useState } from 'react'
+import { useReducer, useRef } from 'react'
 import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
-import FormControl from '@mui/material/FormControl'
-import Slide from '@mui/material/Slide'
 import Fade from '@mui/material/Fade'
 import ModifyQuantity from './ModifyQuantity'
 
@@ -49,9 +46,10 @@ export function ShopItem() {
               justifyContent={'space-between'}
               ref={containerRef}
             >
-              <Fade in={quantityControl}>
-                <ModifyQuantity quantity={quantity} />
-              </Fade>
+              <ModifyQuantity
+                quantity={quantity}
+                dispatchQuantityUpdate={updateQuantity}
+              />
             </Box>
           )}
         </CardContent>
