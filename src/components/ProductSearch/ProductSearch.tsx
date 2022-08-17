@@ -1,18 +1,28 @@
 import FormControl from '@mui/material/FormControl'
 import Paper from '@mui/material/Paper'
 import TextField from '@mui/material/TextField'
-import { useState } from 'react'
+import { Dispatch, FormEvent, useEffect } from 'react'
+import { useDebounce } from '../../utilities/customHooks/useDebounce'
 import { PageHeading } from '../PageHeading'
 
-export function ProductSearch() {
-  const [productName, setProductName] = useState('')
+export interface ProductSearchProps {
+  productName: string
+  setProductName: Dispatch<React.SetStateAction<string>>
+}
 
+export function ProductSearch({
+  productName,
+  setProductName,
+}: ProductSearchProps) {
+  const debouncedTerm = useDebounce(productName, 300)
+
+  useEffect(() => {
+    if (debouncedTerm) {
+      console.log({ debouncedTerm })
+    }
+  }, [debouncedTerm])
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const doDebouncedSearch = (evt: any) => {
-    console.log({ evt })
-    console.log(evt.target.value)
-    setProductName(evt.target.value)
-  }
+  const handleChange = (e: any) => setProductName(e.target.value)
   return (
     <>
       <PageHeading headingText={'Store Front'} />
@@ -21,8 +31,7 @@ export function ProductSearch() {
           <TextField
             placeholder="Search for products by name..."
             label={'Product Search'}
-            value={productName}
-            onChange={doDebouncedSearch}
+            onChange={handleChange}
           />
         </FormControl>
       </Paper>
