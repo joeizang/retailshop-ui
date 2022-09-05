@@ -8,7 +8,12 @@ import { useReducer } from 'react'
 import Box from '@mui/material/Box'
 import ModifyQuantity from './ModifyQuantity'
 
-export function ShopItem() {
+interface ShopItemProps {
+  productName: string
+  productPrice: number | string
+}
+
+export function ShopItem({ productName, productPrice }: ShopItemProps) {
   const [quantityControl, showQuantityControl] = useReducer(
     (prev) => !prev,
     false,
@@ -35,8 +40,8 @@ export function ShopItem() {
         />
         <CardContent>
           <Box display={'flex'} justifyContent={'space-between'}>
-            <Typography variant={'subtitle2'}>Product Name</Typography>
-            <Typography variant={'subtitle2'}>Product Price</Typography>
+            <Typography variant={'subtitle2'}>{productName}</Typography>
+            <Typography variant={'subtitle2'}>{productPrice}</Typography>
           </Box>
           {quantityControl && (
             <Box display={'flex'} justifyContent={'space-between'}>
